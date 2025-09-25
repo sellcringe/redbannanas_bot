@@ -1,0 +1,47 @@
+#version: '2.39'
+
+services:
+#  bot:
+#    container_name: bot
+#    build: .
+#    command: sh -c "python -m bot"
+#
+#    env_file:
+#      - .env
+#
+#
+#    restart: unless-stopped
+##    volumes:
+##      - .:/app
+
+  bot:
+    build: .
+    command: sh -c "uvicorn bot:app --reload --host localhost --port 8000"
+    volumes:
+      - .:/app:rw
+      - my_volume:/otp
+    env_file:
+      - .env
+    restart: always
+
+
+
+
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${PG_PASS}
+      POSTGRES_DB: postgres
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "6423:5432"
+
+volumes:
+  postgres_data:
+    driver: local
+  my_volume:
+      driver: local
