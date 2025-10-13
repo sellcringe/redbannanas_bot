@@ -101,7 +101,7 @@ async def form_complete(callback: CallbackQuery):
 async def story_complete(callback: CallbackQuery):
     await callback.message.answer("""Молодец! Мы обрабатываем информацию, которую ты нам передал и с нетерпением, когда ты приступишь к задачам!
 
-Пока предлагаем посмотреть презентацию о наших ценностях по ссылке<a href="https://drive.google.com/file/d/1Qojv_nSK1SV8-WyhuXROXKQMnW6H1LrE/view?usp=sharing">ссылке</a>
+Пока предлагаем посмотреть презентацию о наших ценностях по <a href="https://drive.google.com/file/d/1Qojv_nSK1SV8-WyhuXROXKQMnW6H1LrE/view?usp=sharing">ссылке</a>
 
 И остаёмся на связи – за день до дня Х я пришлю всю вводную информацию. Если возникнут вопросы – пиши Лере @to_see_sea""", parse_mode="HTML")
 
