@@ -1,7 +1,7 @@
 import asyncio
 
 import logging
-
+import base64
 import os
 import sys
 from contextlib import asynccontextmanager
@@ -62,7 +62,7 @@ async def get_access(request: Request, username=None, login=None, password=None)
     # data = await request.json()
 
     # print(f'data: {[username,login,password]}')
-
+    password = base64.b64decode(password).decode("utf-8")
     user_id = await get_userid_by_username(sessionmaker=sessionmaker, username=username)
     # print(f'data: {[username,login,password,user_id]}')
     await bot.send_message(user_id, f"""Привет! День Х настал - добро пожаловать в команду!🎉
@@ -72,6 +72,7 @@ async def get_access(request: Request, username=None, login=None, password=None)
 💻 Google аккаунт:
 Логин: {login}
 Пароль: {password}
+* При авторизации может потребоваться подтвердить вход, для этого выберите «отправить письмо на почту…». И напишите Лере – она пришлет код.
 
 💻 Bitrix24:
 После входа в Google ты получишь уведомление на почту — там будет всё, что нужно для входа в Bitrix.
