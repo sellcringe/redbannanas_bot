@@ -46,3 +46,8 @@ def send_access_complete():
 def get_meet():
     rows = [[InlineKeyboardButton(text="☑️Понял, пошёл на встречу", callback_data="go meet")]]
     return InlineKeyboardMarkup(inline_keyboard=rows)
+
+
+def send_reglaments_about_services():
+    rows = [[InlineKeyboardButton(text="☑️ «Спасибо, что дальше?»", callback_data="what next")]]
+    return InlineKeyboardMarkup(inline_keyboard=rows)
