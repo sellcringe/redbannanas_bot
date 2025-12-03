@@ -39,7 +39,7 @@ def send_check_list():
 
 
 def send_access_complete():
-    rows = [[InlineKeyboardButton(text="☑️Авторизовался в сервисах»»", callback_data="send access complete")]]
+    rows = [[InlineKeyboardButton(text="«☑️Авторизовался в сервисах»", callback_data="send access complete")]]
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
 
